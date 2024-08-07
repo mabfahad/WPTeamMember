@@ -22,57 +22,30 @@ class WPTM_Shortcode
         );
 
         $team_members = new WP_Query($args);
-        ob_start();
-        ?>
-<!--            HTML template for team members-->
-        <div id="wptm_team_members">
-            <div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div>
 
-            <div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
+        if($team_members->have_posts()){
+            ob_start();
+            ?>
+            <div id="wptm_team_members">
+                <?php while($team_members->have_posts()): $team_members->the_post(); ?>
+                    <div class="wptm_team_member">
+                        <?php if($atts['image_position'] == 'top'): ?>
+                            <?php the_post_thumbnail(); ?>
+                        <?php endif; ?>
+                        <h3><?php the_title(); ?></h3>
+                        <h4><?php echo get_post_meta(get_the_ID(), 'position', true); ?></h4>
+                        <?php if($atts['image_position'] == 'bottom'): ?>
+                            <?php the_post_thumbnail(); ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endwhile; ?>
             </div>
-
-            <div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div>
-
-            <div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div><div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div><div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div><div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div><div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div><div class="wptm_team_member">
-                <img src="http://localhost/codeexpert/wp-content/uploads/2024/08/IMG_0616.jpeg" alt="">
-                <h3>Team Members</h3>
-                <h4>Designation</h4>
-            </div>
-
-        </div>
-        <?php
-        return ob_get_clean();
+            <?php
+            return ob_get_clean();
+        }
+        else{
+            return '<p class="text-danger">Nothing Found!</p>';
+        }
     }
 }
 
