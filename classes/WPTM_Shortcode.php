@@ -38,11 +38,12 @@ class WPTM_Shortcode
                             <?php the_post_thumbnail(); ?>
                         <?php endif; ?>
                     </div>
-                    <a href="<?php echo get_post_type_archive_link('team-member'); ?>" class="wptm_see_all">See All</a>
                 <?php endwhile;
                 wp_reset_postdata();
                 ?>
+
             </div>
+            <a href="<?php echo get_post_type_archive_link('team-member'); ?>" class="wptm_see_all">See All</a>
             <?php
             return ob_get_clean();
         }

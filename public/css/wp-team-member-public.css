@@ -3,12 +3,9 @@
  * included in this file.
  */
 #wptm_team_members {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 2.5rem;
-    flex-direction: column;
 }
 
 .wptm_team_member {
@@ -35,14 +32,18 @@
     color: blue;
 }
 
-#wptm_team_members .wptm_see_all {
+.wptm_see_all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
     text-decoration: none;
     padding: .7rem 1rem;
     background: #725b5b;
     border-radius: 3px;
     color: #fff;
 }
-#wptm_team_members .wptm_see_all:hover {
+.wptm_see_all:hover {
     background: #c97575;
 }
 
