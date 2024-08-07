@@ -35,7 +35,7 @@ class WPTM_Shortcode
                         <h3><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
                         <h4><?php echo get_post_meta(get_the_ID(), 'position', true); ?></h4>
                         <?php if($atts['image_position'] == 'bottom'): ?>
-                            <?php the_post_thumbnail(); ?>
+                            <a href="<?php echo get_the_permalink();?>"> <?php the_post_thumbnail(); ?></a>
                         <?php endif; ?>
                     </div>
                 <?php endwhile;
