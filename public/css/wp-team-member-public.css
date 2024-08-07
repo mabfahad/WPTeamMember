@@ -8,6 +8,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 2.5rem;
+    flex-direction: column;
 }
 
 .wptm_team_member {
@@ -32,6 +33,17 @@
 
 #wptm_team_members .wptm_team_member a:hover {
     color: blue;
+}
+
+#wptm_team_members .wptm_see_all {
+    text-decoration: none;
+    padding: .7rem 1rem;
+    background: #725b5b;
+    border-radius: 3px;
+    color: #fff;
+}
+#wptm_team_members .wptm_see_all:hover {
+    background: #c97575;
 }
 
 #wptm_team_members h3 {
