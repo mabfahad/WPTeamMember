@@ -90,13 +90,3 @@ function run_wp_team_member() {
 
 }
 run_wp_team_member();
-
-function get_custom_post_type_template( $archive_template ) {
-    // Check is the current query is for the 'team-member' post type or any of its sub pages
-    if ( is_post_type_archive( 'team-member' ) ) {
-        $archive_template = plugin_dir_path( __FILE__ ) . 'public/partials/archive-team-member.php';
-    }
-    return $archive_template;
-}
-
-add_filter( 'archive_template', 'get_custom_post_type_template' ) ;
