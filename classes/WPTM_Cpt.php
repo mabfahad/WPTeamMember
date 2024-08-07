@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Car
+ * Class WPTM_Cpt
  *
  * Handles the creation of a custom post type
  */
@@ -18,6 +18,7 @@ class WPTM_Cpt
         $this->plural_name = $plural_name;
         $this->singular_name = $singular_name;
         add_action('init', array($this, 'create_post_type'));
+        add_action('init', array($this, 'create_taxonomy'));
     }
 
     function create_post_type(){
@@ -63,6 +64,33 @@ class WPTM_Cpt
         // Registering the Post Type
         register_post_type($this->post_type_name, $args);
 
+    }
+
+    function create_taxonomy(){
+        $labels = array(
+            'name'              => _x( 'Member Types', 'taxonomy general name', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'singular_name'     => _x( 'Member Type', 'taxonomy singular name', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'search_items'      => __( 'Search Member Types', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'all_items'         => __( 'All Member Types', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'parent_item'       => __( 'Parent Member Type', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'parent_item_colon' => __( 'Parent Member Type:', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'edit_item'         => __( 'Edit Member Type', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'update_item'       => __( 'Update Member Type', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'add_new_item'      => __( 'Add New Member Type', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'new_item_name'     => __( 'New Member Type Name', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+            'menu_name'         => __( 'Member Type', WP_TEAM_MEMBER_TEXT_DOMAIN ),
+        );
+
+        $args = array(
+            'hierarchical'      => true,
+            'labels'            => $labels,
+            'show_ui'           => true,
+            'show_admin_column' => true,
+            'query_var'         => true,
+            'rewrite'           => array( 'slug' => 'member-type' ),
+        );
+
+        register_taxonomy( 'member-type', array( $this->post_type_name ), $args );
     }
 }
 new WPTM_Cpt('team-member', 'Team Members', 'Team Member');
