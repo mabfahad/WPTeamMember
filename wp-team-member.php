@@ -43,6 +43,11 @@ define( 'WP_TEAM_MEMBER_VERSION', '1.0.0' );
 define( 'WP_TEAM_MEMBER_TEXT_DOMAIN', 'wp-team-member' );
 
 /**
+ * Define text domain
+ */
+define( 'WPTMP_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wp-team-member-activator.php
  */
@@ -85,3 +90,13 @@ function run_wp_team_member() {
 
 }
 run_wp_team_member();
+
+function get_custom_post_type_template( $archive_template ) {
+    // Check is the current query is for the 'team-member' post type or any of its sub pages
+    if ( is_post_type_archive( 'team-member' ) ) {
+        $archive_template = plugin_dir_path( __FILE__ ) . 'public/partials/archive-team-member.php';
+    }
+    return $archive_template;
+}
+
+add_filter( 'archive_template', 'get_custom_post_type_template' ) ;

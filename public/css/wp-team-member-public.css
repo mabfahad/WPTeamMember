@@ -59,3 +59,41 @@
 .text-danger{
     color: red;
 }
+
+.wptm_pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.wptm_pagination ul {
+    display: flex;
+    list-style: none;
+}
+
+.wptm_pagination li {
+    margin: 0 .5rem;
+}
+
+.wptm_pagination li span {
+    text-decoration: none;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+    border-radius: 3px;
+    background: #00a32a;
+    color: #fff;
+}
+
+.wptm_pagination a {
+    text-decoration: none;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+    border-radius: 3px;
+    background: #725b5b;
+    color: #fff;
+}
+
+.wptm_pagination a:hover {
+    background: #c97575;
+}
