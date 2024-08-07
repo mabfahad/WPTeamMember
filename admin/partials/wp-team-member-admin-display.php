@@ -13,4 +13,4 @@
  */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta eligendi excepturi libero, neque sapiente? Accusamus delectus dolore eos excepturi facere fugiat ipsam iure iusto laudantium optio, praesentium quas sequi.
