@@ -30,9 +30,9 @@ class WPTM_Shortcode
                 <?php while($team_members->have_posts()): $team_members->the_post(); ?>
                     <div class="wptm_team_member">
                         <?php if($atts['image_position'] == 'top'): ?>
-                            <?php the_post_thumbnail(); ?>
+                            <a href="<?php the_permalink();?>"><?php the_post_thumbnail(); ?></a>
                         <?php endif; ?>
-                        <h3><?php the_title(); ?></h3>
+                        <h3><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
                         <h4><?php echo get_post_meta(get_the_ID(), 'position', true); ?></h4>
                         <?php if($atts['image_position'] == 'bottom'): ?>
                             <?php the_post_thumbnail(); ?>
