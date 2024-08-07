@@ -19,6 +19,9 @@ class WPTM_Cpt
         $this->singular_name = $singular_name;
         add_action('init', array($this, 'create_post_type'));
         add_action('init', array($this, 'create_taxonomy'));
+
+        //Add meta box for the position field in the team member post type and it's required field
+        add_action('add_meta_boxes', array($this, 'add_meta_box'));
     }
 
     function create_post_type(){
@@ -91,6 +94,19 @@ class WPTM_Cpt
         );
 
         register_taxonomy( 'member-type', array( $this->post_type_name ), $args );
+    }
+
+    //Add meta box for the position field in the team member post type and it's required field
+    function add_meta_box(){
+        add_meta_box('team_member_position', 'Position', array($this, 'position_meta_box'), $this->post_type_name, 'side', 'high');
+    }
+
+    function position_meta_box($post){
+        $value = get_post_meta($post->ID, 'position', true);
+        ?>
+        <label for="position">Position</label>
+        <input type="text" name="position" id="position" value="<?php echo $value; ?>" required>
+        <?php
     }
 }
 new WPTM_Cpt('team-member', 'Team Members', 'Team Member');
