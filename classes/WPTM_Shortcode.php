@@ -38,7 +38,9 @@ class WPTM_Shortcode
                             <?php the_post_thumbnail(); ?>
                         <?php endif; ?>
                     </div>
-                <?php endwhile; ?>
+                <?php endwhile;
+                wp_reset_postdata();
+                ?>
             </div>
             <?php
             return ob_get_clean();
