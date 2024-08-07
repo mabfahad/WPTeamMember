@@ -38,6 +38,11 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'WP_TEAM_MEMBER_VERSION', '1.0.0' );
 
 /**
+ * Define text domain
+ */
+define( 'WP_TEAM_MEMBER_TEXT_DOMAIN', 'wp-team-member' );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wp-team-member-activator.php
  */
