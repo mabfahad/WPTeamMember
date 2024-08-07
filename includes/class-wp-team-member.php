@@ -123,6 +123,7 @@ class Wp_Team_Member {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-team-member-public.php';
 
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'classes/WPTM_Cpt.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'classes/WPTM_Shortcode.php';
 
 		$this->loader = new Wp_Team_Member_Loader();
 
