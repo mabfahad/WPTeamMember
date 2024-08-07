@@ -22,6 +22,9 @@ class WPTM_Cpt
 
         //Add meta box for the position field in the team member post type and it's required field
         add_action('add_meta_boxes', array($this, 'add_meta_box'));
+
+        //save the position field value
+        add_action('save_post', array($this, 'save_position_meta_box'));
     }
 
     function create_post_type(){
@@ -107,6 +110,13 @@ class WPTM_Cpt
         <label for="position">Position</label>
         <input type="text" name="position" id="position" value="<?php echo $value; ?>" required>
         <?php
+    }
+
+    //save the position field value
+    function save_position_meta_box($post_id){
+        if(array_key_exists('position', $_POST)){
+            update_post_meta($post_id, 'position', $_POST['position']);
+        }
     }
 }
 new WPTM_Cpt('team-member', 'Team Members', 'Team Member');
