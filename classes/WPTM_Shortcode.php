@@ -43,8 +43,12 @@ class WPTM_Shortcode
                 ?>
 
             </div>
-            <a href="<?php echo get_post_type_archive_link('team-member'); ?>" class="wptm_see_all">See All</a>
             <?php
+            if($atts['display'] == 'yes'){
+            ?>
+                <a href="<?php echo get_post_type_archive_link('team-member'); ?>" class="wptm_see_all">See All</a>
+            <?php
+            }
             return ob_get_clean();
         }
         else{
