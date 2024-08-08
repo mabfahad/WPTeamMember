@@ -118,4 +118,12 @@ class Wp_Team_Member_Admin
     {
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/partials/wp-team-member-admin-display.php';
     }
+
+    /**
+     * Register the settings
+     */
+    public function WPTM_register_settings(){
+        register_setting('wp_team_member_settings', 'wp_team_member_post_type_slug');
+        register_setting('wp_team_member_settings', 'wp_team_member_post_type_name');
+    }
 }

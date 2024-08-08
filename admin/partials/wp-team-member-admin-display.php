@@ -1,16 +1,15 @@
-<?php
+<div id="wptm_settings">
+    <form method="post" action="" id="wptm_settings_form">
+        <div class="form-group">
+            <label for="wptm_post_type_name">Post Type Name</label>
+            <input type="text" class="form-control" id="wptm_post_type_name" name="wptm_post_type_name" value="<?php echo get_option('wptm_post_type_name'); ?>">
+        </div>
+        <div class="form-group">
+            <label for="wptm_post_type_slug">Post Type Slug</label>
+            <input type="text" class="form-control" id="wptm_post_type_slug" name="wptm_post_type_slug" value="<?php echo get_option('wptm_post_type_slug'); ?>">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
 
-/**
- * Provide a admin area view for the plugin
- *
- * This file is used to markup the admin-facing aspects of the plugin.
- *
- * @link       https://abfahad.me
- * @since      1.0.0
- *
- * @package    Wp_Team_Member
- * @subpackage Wp_Team_Member/admin/partials
- */
-?>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta eligendi excepturi libero, neque sapiente? Accusamus delectus dolore eos excepturi facere fugiat ipsam iure iusto laudantium optio, praesentium quas sequi.

@@ -2,3 +2,27 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+#wptm_settings{
+    width: 300px;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+#wptm_settings_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+#wptm_settings_form label{
+    margin-bottom: 0.2rem;
+    display: block;
+    color: #333;
+    font-size: 1rem;
+}
+#wptm_settings_form input{
+    margin-bottom: 1rem;
+}
+#wptm_settings_form button{
+    align-self: center;
+}
