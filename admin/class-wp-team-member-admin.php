@@ -101,6 +101,13 @@ class Wp_Team_Member_Admin
          */
 
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wp-team-member-admin.js', array('jquery'), $this->version, false);
+        //enqueue jquery
+        wp_enqueue_script('jquery');
+        //localize ajax_url
+         wp_localize_script( $this->plugin_name, 'wptm_admin_ajax_object', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'nonce'    => wp_create_nonce( 'wptm_admin_nonce' )
+        ) );
 
     }
 
